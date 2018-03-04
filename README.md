@@ -6,7 +6,7 @@
 
 * Netdata
 * EasyEngine
-* Extplorer (Web File browser)
+* Extplorer (Web File Manager)
 
 ## Installation
 

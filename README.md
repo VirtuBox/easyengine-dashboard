@@ -40,6 +40,14 @@ wget -O /etc/nginx/sites-available/default  https://raw.githubusercontent.com/Vi
 wget -O /etc/nginx/sites-available/22222 https://raw.githubusercontent.com/VirtuBox/ubuntu-nginx-web-server/master/etc/nginx/sites-available/22222
 ```
 
+Add the following lines to /etc/nginx/conf.d/upstream.conf
+```
+upstream netdata {
+    server 127.0.0.1:19999;
+    keepalive 64;
+}
+```
+
 Install extplorer
 ```
 mkdir /var/www/22222/htdocs/files

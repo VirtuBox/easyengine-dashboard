@@ -103,17 +103,17 @@ $root = $_SERVER['HTTP_HOST'];
                             </tr>
                             <tr>
                                 <th scope="row">RAM</th>
-                                <td><embed src="https://nginx.vtbox.ovh:22222/netdata/api/v1/badge.svg?chart=system.ram&alarm=ram_in_use&refresh=auto" type="image/svg+xml" height="20"/></td>
+                                <td><embed src="https://<?php echo $root; ?>/netdata/api/v1/badge.svg?chart=system.ram&alarm=ram_in_use&refresh=auto" type="image/svg+xml" height="20"/></td>
 
                             </tr>
                             <tr>
                                 <th scope="row">SWAP</th>
-                                <td><embed src="https://nginx.vtbox.ovh:22222/netdata/api/v1/badge.svg?chart=system.swap&alarm=ram_in_swap&refresh=auto" type="image/svg+xml" height="20"/></td>
+                                <td><embed src="https://<?php echo $root; ?>/netdata/api/v1/badge.svg?chart=system.swap&alarm=ram_in_swap&refresh=auto" type="image/svg+xml" height="20"/></td>
 
                             </tr>
                             <tr>
                                 <th scope="row">DISK</th>
-                                <td><embed src="https://nginx.vtbox.ovh:22222/netdata/api/v1/badge.svg?chart=disk_space._&alarm=disk_space_usage&refresh=auto" type="image/svg+xml" height="20"/></td>
+                                <td><embed src="https://<?php echo $root; ?>/netdata/api/v1/badge.svg?chart=disk_space._&alarm=disk_space_usage&refresh=auto" type="image/svg+xml" height="20"/></td>
                             </tr>
 
                             </tbody>

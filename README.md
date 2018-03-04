@@ -1,5 +1,5 @@
-# easyengine-dashboard - A clean bootstrap dashboard for EasyEngine 
-
+# easyengine-dashboard 
+## A clean bootstrap dashboard for EasyEngine 
 ![ee-dashboard](https://raw.githubusercontent.com/VirtuBox/easyengine-dashboard/master/ee-dashboard.png)
 
 ## Requirements

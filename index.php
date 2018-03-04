@@ -28,9 +28,7 @@ $root = $_SERVER['HTTP_HOST'];
 
     <!-- Bootstrap core CSS -->
  <link href="css/bootstrap.min.css" rel="stylesheet">
-	<script>var netdataNoBootstrap = true;</script>
-	<script type="text/javascript">var netdataServer = "https://<?php echo $root; ?>/netdata/";</script>
-	<script type="text/javascript" src="https://<?php echo $root; ?>/netdata/dashboard.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
     <!-- Custom styles for this template -->
     <link href="css/ee-dashboard.css" rel="stylesheet">
 </head>
@@ -78,66 +76,104 @@ $root = $_SERVER['HTTP_HOST'];
 
 <div class="row">
   <div class="col-3">
-    <div class="list-group" id="list-tab" role="tablist">
-      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home"> <i class="fas fa-database"></i> Database</a>
+    <div class="list-group bg-dark text-white" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home"> <i class="fas fa-database"></i> Home</a>
+        <a class="list-group-item list-group-item-action" id="list-db-list" data-toggle="list" href="#list-db" role="tab" aria-controls="db"> <i class="fas fa-database"></i> Database</a>
       <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile"><i class="fas fa-tachometer-alt"></i> Cache</a>
-      <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages"><i class="fas fa-chart-bar"></i> Monitoring</a>
-
+        <a class="list-group-item list-group-item-action" id="list-messages-list" href="https://<?php echo $root; ?>/php/info.php" target="_blank" ><i class="fas fa-code"></i> PHP Info</a>
+        <a class="list-group-item list-group-item-action" id="list-messages-list" href="https://<?php echo $root; ?>/netdata/" target="_blank" ><i class="fas fa-chart-bar"></i> Monitoring</a>
+     <a class="list-group-item list-group-item-action" id="list-messages-list" href="https://<?php echo $root; ?>/files/" target="_blank" ><i class="fas fa-folder-open"></i> File Manager</a>
     </div>
   </div>
   <div class="col-9">
     <div class="tab-content" id="nav-tabContent">
-      <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list"><div class="container"><div class="card-deck">
-  <div class="card">
-	  <div class="text-center">
-   <i class="fas fa-database fa-10x"></i>
+        <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list"><div class="container">
+                    <div class="card bg-dark text-white w-100">
+                        <h3 class="card-header">
+                            Metrics
+                        </h3>
+                        <div class="card-body">
+                        <table class="table bg-dark text-white table-striped">
 
-    <div class="card-body">
-      <h4 class="card-title">phpMyAdmin</h4>
+                            <tbody>
+                            <tr>
+                                <th scope="row">CPU</th>
+                                <td><embed src="https://<?php echo $root; ?>/netdata/api/v1/badge.svg?chart=system.cpu&alarm=10min_cpu_usage&refresh=auto" type="image/svg+xml" height="20"/></td>
 
-    </div>
-	  	 
-    <div class="card-footer">
-	<a href="https://<?php echo $root; ?>/db/pma/" target="_blank" ><button type="button" class="btn btn-primary btn-lg btn-block">Open</button></a>
-    </div>
-		   </div>
-  </div>
-  <div class="card">
-	  <div class="text-center">
-   <i class="fas fa-database fa-10x"></i>
+                            </tr>
+                            <tr>
+                                <th scope="row">RAM</th>
+                                <td><embed src="https://nginx.vtbox.ovh:22222/netdata/api/v1/badge.svg?chart=system.ram&alarm=ram_in_use&refresh=auto" type="image/svg+xml" height="20"/></td>
 
-    <div class="card-body">
-      <h4 class="card-title">Adminer</h4>
+                            </tr>
+                            <tr>
+                                <th scope="row">SWAP</th>
+                                <td><embed src="https://nginx.vtbox.ovh:22222/netdata/api/v1/badge.svg?chart=system.swap&alarm=ram_in_swap&refresh=auto" type="image/svg+xml" height="20"/></td>
 
-    </div>
-		  	
-    <div class="card-footer">
-	<a href="https://<?php echo $root; ?>/db/adminer/" target="_blank" ><button type="button" class="btn btn-primary btn-lg btn-block">Open</button></a>
+                            </tr>
+                            <tr>
+                                <th scope="row">DISK</th>
+                                <td><embed src="https://nginx.vtbox.ovh:22222/netdata/api/v1/badge.svg?chart=disk_space._&alarm=disk_space_usage&refresh=auto" type="image/svg+xml" height="20"/></td>
+                            </tr>
 
-		  </div>
-    </div>
-  </div>
-  <div class="card">
-	  <div class="text-center">
-   <i class="fas fa-database fa-10x"></i>
+                            </tbody>
+                        </table>
+                        </div>
 
-    <div class="card-body">
-      <h4 class="card-title">Anemometer</h4>
-	
-         
-   
-			  </div>
-    
-    <div class="card-footer">
-	<a href="https://<?php echo $root; ?>/db/anemometer/" target="_blank" ><button type="button" class="btn btn-primary btn-lg btn-block">Open</button></a>
-    </div>
-		  </div>
-  </div>
-	  </div></div></div>
+                    </div>
+
+                </div></div>
+        <div class="tab-pane fade" id="list-db" role="tabpanel" aria-labelledby="list-db-list"><div class="container"><div class="card-deck">
+                <div class="card">
+                    <div class="text-center">
+                        <i class="fas fa-database fa-6x"></i>
+
+                        <div class="card-body">
+                            <h4 class="card-title">phpMyAdmin</h4>
+
+                        </div>
+
+                        <div class="card-footer">
+                            <a href="https://<?php echo $root; ?>/db/pma/" target="_blank" ><button type="button" class="btn btn-primary btn-lg btn-block">Open</button></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="text-center">
+                        <i class="fas fa-database fa-6x"></i>
+
+                        <div class="card-body">
+                            <h4 class="card-title">Adminer</h4>
+
+                        </div>
+
+                        <div class="card-footer">
+                            <a href="https://<?php echo $root; ?>/db/adminer/" target="_blank" ><button type="button" class="btn btn-primary btn-lg btn-block">Open</button></a>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="text-center">
+                        <i class="fas fa-database fa-6x"></i>
+
+                        <div class="card-body">
+                            <h4 class="card-title">Anemometer</h4>
+
+
+
+                        </div>
+
+                        <div class="card-footer">
+                            <a href="https://<?php echo $root; ?>/db/anemometer/" target="_blank" ><button type="button" class="btn btn-primary btn-lg btn-block">Open</button></a>
+                        </div>
+                    </div>
+                </div>
+            </div></div></div>
       <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list"><div class="container"><div class="card-deck">
   <div class="card">
 	  <div class="text-center">
-   <i class="fas fa-database fa-10x"></i>
+          <i class="fas fa-hdd fa-6x"></i>
 
     <div class="card-body">
       <h4 class="card-title">memcache</h4>
@@ -151,7 +187,7 @@ $root = $_SERVER['HTTP_HOST'];
   </div>
   <div class="card">
 	  <div class="text-center">
-   <i class="fas fa-database fa-10x"></i>
+          <i class="fas fa-hdd fa-6x"></i>
 
     <div class="card-body">
       <h4 class="card-title">Redis</h4>
@@ -166,7 +202,7 @@ $root = $_SERVER['HTTP_HOST'];
   </div>
   <div class="card">
 	  <div class="text-center">
-   <i class="fas fa-database fa-10x"></i>
+          <i class="fas fa-hdd fa-6x"></i>
 
     <div class="card-body">
       <h4 class="card-title">Opcache</h4>
@@ -181,93 +217,7 @@ $root = $_SERVER['HTTP_HOST'];
 		  </div>
   </div>
 	  </div></div></div>
-      <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list"><div class="container">
-	  
-	  <table class="table table-striped text-center">
-          <thead class="thead-dark">
-          <tr>
-            <th></th>
-            <th>CPU</th>
-            <th>RAM</th>
-            <th>SWAP</th>
-			 <th>DISK</th>
-          </tr>
-          </thead>
-          <tbody>
-          <tr>
-         
-			  <td> 
-			    </td> 
-      <td> 
-	  <img src="https://<?php echo $root; ?>/netdata/api/v1/badge.svg?chart=system.cpu&amp;alarm=10min_cpu_usage&amp;refresh=auto">
-	  </td>
-      <td>  
-	  <img src="https://<?php echo $root; ?>/netdata/api/v1/badge.svg?chart=system.ram&alarm=ram_in_use&refresh=auto">
-	  </td>
-      <td>  
-	  <img src="https://<?php echo $root; ?>/netdata/api/v1/badge.svg?chart=system.swap&alarm=used_swap&refresh=auto">
-	  </td> <td> 
-	  <img src="https://<?php echo $root; ?>/netdata/api/v1/badge.svg?chart=system.swap&alarm=used_swap&refresh=auto">
-	  </td>
-
-          </tr>
-          
-         
-          </tbody>
-        </table>
-	  
-	  <div class="card-deck">
-  <div class="card">
-	  <div class="text-center">
-
-  <div data-netdata="nginx_local.connections" data-title="" data-height="250" data-width="250" data-dimensions="" data-chart-library="gauge" data-gauge-adjust="width" data-before="0" data-after="-480" data-points="CHART_DURATION" data-colors="#0099C6"></div>
-
-    <div class="card-body">
-
-	<h4 class="card-title">Nginx</h4>
-    </div>
-	  	 
-    <div class="card-footer">
-
-    </div>
-		   </div>
-  </div>
-  <div class="card">
-	  <div class="text-center">
   
-     <div data-netdata="phpfpm_local.requests" data-title=""  data-chart-library="gauge"  data-width="250" data-points="60"  data-after="-60" data-height="250"></div>
-
-
-    <div class="card-body">
-
-	<h4 class="card-title">PHP-FPM</h4>
-    </div>
-		  	
-    <div class="card-footer">
-
-
-		  </div>
-		   </div>
-    </div>
- 
-  <div class="card">
-	  <div class="text-center">
-  <div data-netdata="mysql_local.connections" data-title="" data-height="250" data-width="250" data-dimensions="" data-chart-library="gauge" data-gauge-adjust="width" data-before="0" data-after="-480" data-points="CHART_DURATION" data-colors="#0099C6"></div>
-
-    <div class="card-body">
-
-	<h4 class="card-title">MySQL</h4>
-         
-   
-			  </div>
-      <div class="card-footer">
-
-
-		  </div>
-   
-		  </div>
-  </div>
-	  </div></div> </div>
       
     </div>
   </div>
@@ -293,10 +243,11 @@ $root = $_SERVER['HTTP_HOST'];
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/holder.min.js"></script>
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-	<script type="text/javascript" src="js/bootstrap.min.js"></script>
  <script>
       var RELOAD_EVERY = 5;
       setTimeout(function(){

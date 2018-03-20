@@ -52,11 +52,12 @@ Install extplorer
 ```
 mkdir /var/www/22222/htdocs/files
 wget http://extplorer.net/attachments/download/74/eXtplorer_2.1.10.zip -O /var/www/22222/htdocs/files/ex.zip
-unzip /var/www/22222/htdocs/files/ex.zip && rm /var/www/22222/htdocs/files/ex.zip
+cd /var/www/22222/htdocs/files && unzip ex.zip && rm ex.zip
 ```
 
 Install ee-dashboard
 ```
+cd ~/
 git clone https://github.com/VirtuBox/easyengine-dashboard.git
 cp -rf easyengine-dashboard/* /var/www/22222/htdocs/
 chown -R www-data:www-data /var/www/22222/htdocs

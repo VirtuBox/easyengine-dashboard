@@ -293,7 +293,7 @@ $root = $_SERVER['HTTP_HOST'];
                                   </div>
           
                                   <div class="card-footer">
-                                      <a href="https://<?php echo $root; ?>db/pma/" target="_blank"><button type="button" class="btn btn-primary btn-lg btn-block">Open</button></a>
+                                      <a href="https://<?php echo $root; ?>/db/pma/" target="_blank"><button type="button" class="btn btn-primary btn-lg btn-block">Open</button></a>
                                   </div>
                               </div>
                           </div>
@@ -307,7 +307,7 @@ $root = $_SERVER['HTTP_HOST'];
                                   </div>
           
                                   <div class="card-footer">
-                                      <a href="https://<?php echo $root; ?>db/adminer/" target="_blank"><button type="button" class="btn btn-primary btn-lg btn-block">Open</button></a>
+                                      <a href="https://<?php echo $root; ?>/db/adminer/" target="_blank"><button type="button" class="btn btn-primary btn-lg btn-block">Open</button></a>
           
                                   </div>
                               </div>
@@ -324,7 +324,7 @@ $root = $_SERVER['HTTP_HOST'];
                                   </div>
           
                                   <div class="card-footer">
-                                      <a href="https://<?php echo $root; ?>db/anemometer/" target="_blank"><button type="button" class="btn btn-primary btn-lg btn-block">Open</button></a>
+                                      <a href="https://<?php echo $root; ?>/db/anemometer/" target="_blank"><button type="button" class="btn btn-primary btn-lg btn-block">Open</button></a>
                                   </div>
                               </div>
                           </div>
@@ -346,7 +346,7 @@ $root = $_SERVER['HTTP_HOST'];
           </div>
              
           <div class="card-footer">
-        <a href="https://<?php echo $root; ?>cache/memcache/" target="_blank"><button type="button" class="btn btn-primary btn-lg btn-block">Open</button></a>
+        <a href="https://<?php echo $root; ?>/cache/memcache/" target="_blank"><button type="button" class="btn btn-primary btn-lg btn-block">Open</button></a>
           </div>
              </div>
         </div>
@@ -360,7 +360,7 @@ $root = $_SERVER['HTTP_HOST'];
           </div>
               
           <div class="card-footer">
-        <a href="https://<?php echo $root; ?>cache/redis/phpRedisAdmin/" target="_blank"><button type="button" class="btn btn-primary btn-lg btn-block">Open</button></a>
+        <a href="https://<?php echo $root; ?>/cache/redis/phpRedisAdmin/" target="_blank"><button type="button" class="btn btn-primary btn-lg btn-block">Open</button></a>
       
             </div>
           </div>
@@ -377,7 +377,7 @@ $root = $_SERVER['HTTP_HOST'];
               </div>
           
           <div class="card-footer">
-        <a href="https://<?php echo $root; ?>cache/opcache/opgui.php" target="_blank"><button type="button" class="btn btn-primary btn-lg btn-block">Open</button></a>
+        <a href="https://<?php echo $root; ?>/cache/opcache/opgui.php" target="_blank"><button type="button" class="btn btn-primary btn-lg btn-block">Open</button></a>
           </div>
             </div>
         </div>

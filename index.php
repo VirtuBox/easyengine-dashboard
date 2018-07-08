@@ -10,7 +10,7 @@ $root = $_SERVER['HTTP_HOST'];
     <meta name="author" content="VirtuBox">
     <link rel="icon" href="favicon.ico">
 
-    <title>Custom Netdata Dashboard by VirtuBox</title>
+    <title>EasyEngine Dashboard by VirtuBox</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -341,7 +341,7 @@ $root = $_SERVER['HTTP_HOST'];
           <div class="text-center">
               <i class="fas fa-server fa-6x"></i>
           <div class="card-body">
-            <h4 class="card-title">memcache</h4>
+            <h4 class="card-title">Memcached</h4>
       
           </div>
              
@@ -442,53 +442,7 @@ $root = $_SERVER['HTTP_HOST'];
                     </div>
                 </div>
             </div></div></div>
-      <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list"><div class="container"><div class="card-deck">
-  <div class="card">
-	  <div class="text-center">
-          <i class="fas fa-hdd fa-6x"></i>
 
-    <div class="card-body">
-      <h4 class="card-title">memcache</h4>
-
-    </div>
-	  	 
-    <div class="card-footer">
-	<a href="https://<?php echo $root; ?>/cache/memcache/" target="_blank" ><button type="button" class="btn btn-primary btn-lg btn-block">Open</button></a>
-    </div>
-		   </div>
-  </div>
-  <div class="card">
-	  <div class="text-center">
-          <i class="fas fa-hdd fa-6x"></i>
-
-    <div class="card-body">
-      <h4 class="card-title">Redis</h4>
-
-    </div>
-		  	
-    <div class="card-footer">
-	<a href="https://<?php echo $root; ?>/cache/redis/phpRedisAdmin/" target="_blank" ><button type="button" class="btn btn-primary btn-lg btn-block">Open</button></a>
-
-		  </div>
-    </div>
-  </div>
-  <div class="card">
-	  <div class="text-center">
-          <i class="fas fa-hdd fa-6x"></i>
-
-    <div class="card-body">
-      <h4 class="card-title">Opcache</h4>
-	
-         
-   
-			  </div>
-    
-    <div class="card-footer">
-	<a href="https://<?php echo $root; ?>/cache/opcache/opgui.php" target="_blank" ><button type="button" class="btn btn-primary btn-lg btn-block">Open</button></a>
-    </div>
-		  </div>
-  </div>
-	  </div></div></div>
   
       
     </div>

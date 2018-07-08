@@ -13,7 +13,7 @@
 
 ## Installation
 
-Install Following Stacks
+Install the Following Stacks
 
 ```bash
 ee stack install --web --php7 --redis --admin --phpredisadmin
@@ -36,28 +36,25 @@ echo 1 >/sys/kernel/mm/ksm/run
 echo 1000 >/sys/kernel/mm/ksm/sleep_millisecs
 ```
 
-Set custom nginx configuration (php7 used instead of php5.6 and nginx rules and reverse-proxy for netdata)  
+### Nginx configurations 
+
+* added nginx & php-fpm status page to default vhost
+* added netdata reverse-proxy configuration in 22222
+* added php7.1, php7.2 and netdata upstream to upstream.conf
 
 ```bash
-wget -O /etc/nginx/sites-available/default  https://raw.githubusercontent.com/VirtuBox/ubuntu-nginx-web-server/master/etc/nginx/sites-available/default
+wget -O /etc/nginx/sites-available/default  https://virtubox.github.io/ubuntu-nginx-web-server/files/etc/nginx/sites-available/default
 
-wget -O /etc/nginx/sites-available/22222 https://raw.githubusercontent.com/VirtuBox/ubuntu-nginx-web-server/master/etc/nginx/sites-available/22222
-```
+wget -O /etc/nginx/sites-available/22222 https://virtubox.github.io/ubuntu-nginx-web-server/files/etc/nginx/sites-available/22222
 
-Add the following lines to /etc/nginx/conf.d/upstream.conf
-
-```bash
-upstream netdata {
-    server 127.0.0.1:19999;
-    keepalive 64;
-}
+wget -O /etc/nginx/conf.d/upstream.conf https://virtubox.github.io/ubuntu-nginx-web-server/files/etc/nginx/conf.d/upstream.conf
 ```
 
 Install extplorer
 
 ```bash
 mkdir /var/www/22222/htdocs/files
-wget http://extplorer.net/attachments/download/74/eXtplorer_2.1.10.zip -O /var/www/22222/htdocs/files/ex.zip
+wget http://extplorer.net/attachments/**download**/74/eXtplorer_2.1.10.zip -O /var/www/22222/htdocs/files/ex.zip
 cd /var/www/22222/htdocs/files && unzip ex.zip && rm ex.zip
 ```
 

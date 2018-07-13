@@ -7,63 +7,84 @@
 
 ## Requirements
 
-* Netdata
-* EasyEngine
-* Extplorer (Web File Manager)
+- EasyEngine
 
 ## Installation
 
-Install the Following Stacks
+### Automated install 
+
+```bash
+bash <(wget -O - https://virtubox.github.io/easyengine-dashboard/install.sh)
+```
+
+### Manual install 
+
+#### Install the Following Stacks
 
 ```bash
 ee stack install --web --php7 --redis --admin --phpredisadmin
 ```
 
-Update phpmyadmin
+#### Update phpmyadmin (if needed)
 
 ```bash
-bash <(wget --no-check-certificate -O - https://git.virtubox.net/virtubox/debian-config/raw/master/composer.sh)
-sudo -u www-data composer update -d /var/www/22222/htdocs/db/pma/
+cd ~/ || exit
+curl -sS https://getcomposer.org/installer | php
+mv composer.phar /usr/bin/composer
+chown www-data:www-data /var/www
+sudo -u www-data -H composer update -d /var/www/22222/htdocs/db/pma/
 ```
 
-Netdata
+#### Install Netdata
 
 ```bash
-bash <(curl -Ss https://my-netdata.io/kickstart.sh) all
+## install dependencies
+sudo apt-get install autoconf autoconf-archive autogen automake gcc libmnl-dev lm-sensors make nodejs pkg-config python python-mysqldb python-psycopg2 python-pymongo python-yaml uuid-dev zlib1g-dev -y
 
-# save 40-60% of netdata memory
+## install nedata
+bash <(curl -Ss https://my-netdata.io/kickstart.sh) all --dont-wait
+
+## optimize netdata resources usage
 echo 1 >/sys/kernel/mm/ksm/run
 echo 1000 >/sys/kernel/mm/ksm/sleep_millisecs
+
+## disable email notifigrep -cions
+sudo sed -i 's/SEND_EMAIL="YES"/SEND_EMAIL="NO"/' /etc/netdata/health_alarm_notify.conf
+sudo service netdata restart
 ```
 
-### Nginx configurations 
+#### Nginx configurations 
 
 * added nginx & php-fpm status page to default vhost
 * added netdata reverse-proxy configuration in 22222
 * added php7.1, php7.2 and netdata upstream to upstream.conf
 
 ```bash
+# add location for monitoring
 wget -O /etc/nginx/sites-available/default  https://virtubox.github.io/ubuntu-nginx-web-server/files/etc/nginx/sites-available/default
 
+# replace php5.6 by php7.0 and add netdata reverse-proxy
 wget -O /etc/nginx/sites-available/22222 https://virtubox.github.io/ubuntu-nginx-web-server/files/etc/nginx/sites-available/22222
 
+# php7.1 php7.2 & netdata upstream
 wget -O /etc/nginx/conf.d/upstream.conf https://virtubox.github.io/ubuntu-nginx-web-server/files/etc/nginx/conf.d/upstream.conf
 ```
 
-Install extplorer
+#### Install extplorer
 
 ```bash
 mkdir /var/www/22222/htdocs/files
-wget http://extplorer.net/attachments/**download**/74/eXtplorer_2.1.10.zip -O /var/www/22222/htdocs/files/ex.zip
+wget http://extplorer.net/attachments/download/74/eXtplorer_2.1.10.zip -O /var/www/22222/htdocs/files/ex.zip
 cd /var/www/22222/htdocs/files && unzip ex.zip && rm ex.zip
 ```
 
-Install ee-dashboard
+#### Install easyengine-dashboard
 
 ```bash
-cd ~/
-git clone https://github.com/VirtuBox/easyengine-dashboard.git
-cp -rf easyengine-dashboard/* /var/www/22222/htdocs/
-rm -rf easyengine-dashboard
-chown -R www-data:www-data /var/www/22222/htdocs
+wget https://github.com/VirtuBox/easyengine-dashboard/archive/v1.0.zip -O easyengine-dashboard.zip
+unzip easyengine-dashboard.zip
+sudo cp -rf easyengine-dashboard-1.0/* /var/www/22222/htdocs/
+sudo chown -R www-data:www-data /var/www/22222/htdocs
 ```
+
+Published & maintained by [VirtuBox](https://virtubox.net)

@@ -87,4 +87,17 @@ sudo cp -rf easyengine-dashboard-1.0/* /var/www/22222/htdocs/
 sudo chown -R www-data:www-data /var/www/22222/htdocs
 ```
 
+### Troubleshooting
+
+**Network interfaces meter are not displayed on the dashboard**
+
+If you network interface isn't named eth0, you just have to use the command `ifconfig` to find its name and to replace eth0 with the proper interface name in the dashboard index.php file.
+Example for a network interface named ens18 : 
+
+```bash 
+sed -i 's/eth0/ens18/' /var/www/22222/htdocs/index.php
+``` 
+
+
+
 Published & maintained by [VirtuBox](https://virtubox.net)

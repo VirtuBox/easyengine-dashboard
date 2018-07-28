@@ -51,8 +51,8 @@ echo 1 >/sys/kernel/mm/ksm/run
 echo 1000 >/sys/kernel/mm/ksm/sleep_millisecs
 
 ## disable email notifigrep -cions
-sudo sed -i 's/SEND_EMAIL="YES"/SEND_EMAIL="NO"/' /etc/netdata/health_alarm_notify.conf
-sudo service netdata restart
+sed -i 's/SEND_EMAIL="YES"/SEND_EMAIL="NO"/' /etc/netdata/health_alarm_notify.conf
+service netdata restart
 
 fi
 

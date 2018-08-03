@@ -4,7 +4,6 @@
 # Variables  
 ##################################
 
-EE_DASH_VER="1.0"
 EXTPLORER_VER="2.1.10"
 
 ##################################
@@ -103,8 +102,8 @@ fi
 cd /var/www/22222 || exit
 
 ## download latest version of EasyEngine-dashboard
-wget https://github.com/VirtuBox/easyengine-dashboard/archive/v$EE_DASH_VER.zip -O easyengine-dashboard.zip
-unzip easyengine-dashboard.zip
-sudo cp -rf easyengine-dashboard-$EE_DASH_VER/* /var/www/22222/htdocs/
+wget https://github.com/VirtuBox/easyengine-dashboard/archive/master.zip -O easyengine-dashboard.zip
+unzip easyengine-dashboard.zip && rm easyengine-dashboard.zip
+sudo cp -rf easyengine-dashboard-master/* /var/www/22222/htdocs/
 sudo chown -R www-data:www-data /var/www/22222/htdocs
 

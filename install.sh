@@ -60,8 +60,8 @@ fi
 ##################################
 
 CONF_22222=$(grep -c netdata /etc/nginx/sites-available/22222)
-CONF_UPSTREAM=$(grep -c /etc/nginx/conf.d/upstream.conf)
-CONF_DEFAULT=$(grep -c /etc/nginx/sites-available/default)
+CONF_UPSTREAM=$(grep -c netdata /etc/nginx/conf.d/upstream.conf)
+CONF_DEFAULT=$(grep -c status /etc/nginx/sites-available/default)
 
 if [[ "$CONF_22222" = 0 ]] 
 then

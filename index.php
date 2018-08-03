@@ -10,6 +10,8 @@ $root = $_SERVER['HTTP_HOST'];
 	<meta name="description" content="">
 	<meta name="author" content="VirtuBox">
 	<link rel="icon" href="favicon.ico">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
 	<title>EasyEngine Dashboard by VirtuBox</title>
 
@@ -30,7 +32,7 @@ $root = $_SERVER['HTTP_HOST'];
 
 <body>
 	<nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
-		<a class="navbar-brand col-sm-3 col-md-2 mr-0" href="https://virtubox.net">VirtuBox</a>
+  <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="https://easyengine.io">EasyEngine Dashboard</a>
 
 
 	</nav>
@@ -74,6 +76,12 @@ $root = $_SERVER['HTTP_HOST'];
 							<a class="nav-link" href="https://<?php echo $root; ?>/netdata/" target="_blank">
 								<i class="fas fa-chart-area fa-lg"></i>
 								Monitoring
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="https://<?php echo $root; ?>/vts_status/" target="_blank">
+              <i class="far fa-list-alt fa-lg"></i>
+							  	Nginx VTS status
 							</a>
 						</li>
 					</ul>
@@ -121,6 +129,8 @@ $root = $_SERVER['HTTP_HOST'];
 							</a>
 						</li>
 					</ul>
+          <div class="text-center text-white bg-dark fixed-bottom pt-4">
+         <p> Dashboard based on a <a class="text-info" href="https://getbootstrap.com/docs/4.1/examples/dashboard/" target="_blank" >Bootstrap 4 example </a>-  Monitoring with <a class="text-info" href="https://github.com/firehol/netdata" target="_blank" >Netdata</a> - Designed by <a class="text-info" href="https://virtubox.net" target="_blank" >VirtuBox</a> </p></div>
 				</div>
 			</nav>
 
@@ -166,39 +176,36 @@ $root = $_SERVER['HTTP_HOST'];
 
 						</div>
 
-						<hr>
-
+					
+            <hr class="my-4">
 						<div class="row">
 							<div class="col-sm-12">
 								<div class="table-responsive">
-									<table class="table table-striped table-sm">
-										<thead class="thead-dark">
-											<tr>
-
-												<th>CPU</th>
-												<th>RAM</th>
-
-
-											</tr>
-										</thead>
+									<table class="table table-striped table-bordered table-sm">
+										
 										<tbody>
 
 											<tr>
 
 												<td class="bg-white">
-													<div data-netdata="system.cpu" data-dimensions="user" data-chart-library="dygraph" data-dygraph-theme="sparkline"
-													 data-width="100%" data-height="200px" data-after="-240" data-colors="#3366CC"></div>
+													<div data-legend="yes" data-netdata="system.cpu" data-dimensions="user" data-chart-library="dygraph" data-before="0" data-after="-480"  data-width="100%" data-dygraph-valuerange="[null, null]"
+													 data-height="200px" data-colors="#3366CC"></div>
 												</td>
-												<td class="bg-white">
-													<div data-netdata="mem.available" data-chart-library="dygraph" data-dygraph-theme="sparkline" data-width="100%" data-height="200px"
-													 data-after="-240" data-colors="#FF5555" data-colors="#3366CC"></div>
-												</td>
-
-
-
+                        <td class="bg-white">
+                        <div data-legend="yes" data-netdata="system.ram" data-chart-library="dygraph" data-before="0" data-after="-480"  data-width="100%" data-dygraph-valuerange="[null, null]" data-height="200px"></div>
+                        </td>
+                                           
 											</tr>
-
-
+                      <tr>
+                      <td class="bg-white">
+													<div data-legend="yes" data-netdata="nginx_local.connections" data-chart-library="dygraph"  data-before="0" data-after="-480" data-dygraph-valuerange="[null, null]" data-width="100%" data-height="200px"
+													 data-after="-240" data-colors="#0099C6"></div>
+												</td>
+                      <td class="bg-white">
+													<div data-legend="yes" data-netdata="nginx_local.requests" data-chart-library="dygraph"  data-before="0" data-after="-480" data-dygraph-valuerange="[null, null]" data-width="100%" data-height="200px"
+													 data-after="-240" data-colors="#0099C6"></div>
+												</td>
+                      </tr>
 										</tbody>
 									</table>
 								</div>
@@ -207,25 +214,7 @@ $root = $_SERVER['HTTP_HOST'];
 						</div>
 					</div>
 
-					<div class="row">
-						<div class="col-sm">
 
-						</div>
-						<div class="col-sm">
-
-						</div>
-						<div class="col-sm">
-
-						</div>
-						<div class="col-sm">
-
-						</div>
-						<div class="col-sm">
-
-						</div>
-
-
-					</div>
 
 					<div class="tab-pane fade" id="list-db" role="tabpanel" aria-labelledby="list-db-list">
 						<div class="row">

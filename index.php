@@ -129,7 +129,7 @@ $root = $_SERVER['HTTP_HOST'];
 							</a>
 						</li>
 					</ul>
-          <div class="text-center text-white bg-dark fixed-bottom pt-4">
+          <div class="text-center text-white bg-dark fixed-bottom pt-3">
          <p> Dashboard based on a <a class="text-info" href="https://getbootstrap.com/docs/4.1/examples/dashboard/" target="_blank" >Bootstrap 4 example </a>-  Monitoring with <a class="text-info" href="https://github.com/firehol/netdata" target="_blank" >Netdata</a> - Designed by <a class="text-info" href="https://virtubox.net" target="_blank" >VirtuBox</a> </p></div>
 				</div>
 			</nav>

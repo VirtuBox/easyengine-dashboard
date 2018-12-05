@@ -10,7 +10,7 @@ $root = $_SERVER['HTTP_HOST'];
 	<meta name="description" content="">
 	<meta name="author" content="VirtuBox">
 	<link rel="icon" href="favicon.ico">
-  <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
 	<title>EasyEngine Dashboard by VirtuBox</title>
@@ -32,13 +32,13 @@ $root = $_SERVER['HTTP_HOST'];
 
 <body>
 	<nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
-  <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="https://easyengine.io">EasyEngine Dashboard</a>
+  <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="https://easyengine.io" target="_blank" rel="noopener">EasyEngine Dashboard</a>
 
 
 	</nav>
 	<div class="container-fluid">
 		<div class="row">
-			<nav class="col-md-2 d-none d-md-block bg-dark sidebar">
+			<nav class="col-md-2 col-sm-2 d-none d-md-block bg-dark sidebar">
 				<div class="sidebar-sticky">
 					<ul class="nav flex-column">
 						<li class="nav-item">
@@ -61,25 +61,25 @@ $root = $_SERVER['HTTP_HOST'];
 							</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="https://<?php echo $root; ?>/files/" target="_blank">
+							<a class="nav-link" href="https://<?php echo $root; ?>/files/" target="_blank" rel="noopener">
 								<i class="far fa-folder-open fa-lg"></i>
 								File Manager
 							</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="https://<?php echo $root; ?>/php/info.php" target="_blank">
+							<a class="nav-link" href="https://<?php echo $root; ?>/php/info.php" target="_blank" rel="noopener">
 								<i class="fas fa-code fa-lg"></i>
 								PHP Info
 							</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="https://<?php echo $root; ?>/netdata/" target="_blank">
+							<a class="nav-link" href="https://<?php echo $root; ?>/netdata/" target="_blank" rel="noopener">
 								<i class="fas fa-chart-area fa-lg"></i>
 								Monitoring
 							</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="https://<?php echo $root; ?>/vts_status/" target="_blank">
+							<a class="nav-link" href="https://<?php echo $root; ?>/vts_status" target="_blank" rel="noopener">
               <i class="far fa-list-alt fa-lg"></i>
 							  	Nginx VTS status
 							</a>
@@ -176,13 +176,13 @@ $root = $_SERVER['HTTP_HOST'];
 
 						</div>
 
-					
+
             <hr class="my-4">
 						<div class="row">
 							<div class="col-sm-12">
 								<div class="table-responsive">
 									<table class="table table-striped table-bordered table-sm">
-										
+
 										<tbody>
 
 											<tr>
@@ -194,7 +194,7 @@ $root = $_SERVER['HTTP_HOST'];
                         <td class="bg-white">
                         <div data-legend="yes" data-netdata="system.ram" data-chart-library="dygraph" data-before="0" data-after="-480"  data-width="100%" data-dygraph-valuerange="[null, null]" data-height="200px"></div>
                         </td>
-                                           
+
 											</tr>
                       <tr>
                       <td class="bg-white">

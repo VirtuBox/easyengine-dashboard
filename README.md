@@ -5,6 +5,10 @@
 
 ![ee-dashboard](https://raw.githubusercontent.com/VirtuBox/easyengine-dashboard/master/ee-dashboard.png)
 
+## New version is available : [WordOps-dashboard](https://github.com/WordOps/wordops-dashboard)
+
+Automated dashboard installation will be available soon in [WordOps](https://github.com/WordOps/WordOps)
+
 ## Requirements
 
 - EasyEngine
